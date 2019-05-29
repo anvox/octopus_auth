@@ -8,33 +8,21 @@ module OctopusAuth
     end
 
     def authenticate
-      return Failure.new(UNAUTHORIZED) if @token.blank?
+      return false if @token.blank?
 
       access_token = OctopusAuth.configuration.model_class.find_by(token: @token)
-
-      return Failure.new(UNAUTHORIZED) unless access_token && access_token.active?
+      return false unless access_token && access_token.active?
 
       if access_token.expires_at > Time.current
         access_token.update(active: false, expired_at: Time.current)
-
-        Failure.new(UNAUTHORIZED)
+        false
       else
-        Success.new(access_token)
+        yield(Success.new(access_token))
+        true
       end
     end
 
     private
-
-    class Failure
-      def initialize(status, message = nil)
-        @status = status
-        @message = message
-      end
-
-      def success?
-        false
-      end
-    end
 
     class Success
       def initialize(access_token)
@@ -53,8 +41,8 @@ module OctopusAuth
         @access_token.scope.to_sym
       end
 
-      def success?
-        true
+      def token
+        @access_token.token
       end
     end
   end
