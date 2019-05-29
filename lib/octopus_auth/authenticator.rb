@@ -1,7 +1,5 @@
 module OctopusAuth
   class Authenticator
-    UNAUTHORIZED = 'UNAUTHORIZED'.freeze
-
     def initialize(token, scope = nil)
       @token = token
       @scope = scope || OctopusAuth.configuration.default_scope
@@ -15,35 +13,21 @@ module OctopusAuth
 
       if access_token.expires_at > Time.current
         access_token.update(active: false, expired_at: Time.current)
-        false
-      else
-        yield(Success.new(access_token))
-        true
+        return false
       end
+
+      yield build_success_result(access_token)
+      true
     end
 
     private
 
-    class Success
-      def initialize(access_token)
-        @access_token = access_token
-      end
-
-      def owner_id
-        @access_token.owner_id
-      end
-
-      def owner_type
-        @access_token.owner_type
-      end
-
-      def scope
-        @access_token.scope.to_sym
-      end
-
-      def token
-        @access_token.token
-      end
+    ResultObject = Struct.new(:token, :owner_id, :owner_type, :scope)
+    def build_success_result(access_token)
+      ResultObject.new(access_token.token,
+                       access_token.owner_id,
+                       access_token.owner_type,
+                       access_token.scope.to_sym)
     end
   end
 end
