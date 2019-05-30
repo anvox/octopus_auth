@@ -25,7 +25,69 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Configure OctopusAuth before use:
+
+```
+OctopusAuth.configure do |config|
+  config.scopes           = [:system, :company, :user].freeze
+  config.default_scope    = :user
+  config.token_life_time  = 2.hours
+  config.token_length     = 20
+  config.model_class      = AccessToken
+end
+
+```
+
+Currently, model class `AccessToken` must be an ActiveRecord sub class. with attributes:
+```
+:id,
+:token,
+:created_at,
+:issued_at,
+:active,
+:expires_at,
+:scope,
+:owner_id,
+:owner_type,
+:creator_id
+```
+
+### Manage token
+
+`OctopusAuth` support issue, revoke and query access token:
+
+```
+access_token = OctopusAuth::Issue.new(:company, 'Company', company_id, user_id).execute
+access_token = OctopusAuth::Revoke.new(token_as_text).execute
+access_tokens = OctopusAuth::Queries::ByScope.new(scope, owner_type, owner_id).execute
+```
+
+`token` needs
+
+* A `scope` defined in `config.scopes`, i.e. `:company`
+* An optional target for that scope, like `('Company', company_id)` We could use polymorphic or any kind of relationship, it's not `OctopusAuth` duty.
+* And an creator, which should be `user_id` of use in system.
+
+`OctopusAuth` allow users define their own `AccessToken` model and detaches from it. So `OctopusAuth` don't know anything about token relationships which rely on each business.
+Every returned token are `OctopusAuth::Decorators::Default` for less rely on `ActiveRecord`
+
+### Authenticate token
+
+`OctopusAuth::Authenticator#authenticate` returns `true`/`false`.
+If true, mean success, block will be called with `success_result` object as below.
+
+```
+OctopusAuth::Authenticator.new(token, scope).authenticate do |success_result|
+    track(success_result.token,
+        success_result.scope,
+        success_result.owner_type,
+        success_result.owner_id)
+end
+```
+
+### Generate model
+
+TODO: Write rails/rake tasks to generator model migration
 
 ## Development
 
