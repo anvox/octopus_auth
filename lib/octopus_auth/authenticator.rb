@@ -10,6 +10,7 @@ module OctopusAuth
 
       access_token = OctopusAuth.configuration.model_class.find_by(token: @token)
       return false unless access_token && access_token.active?
+      return false if access_token.scope.to_sym != @scope
 
       if access_token.expires_at > Time.current
         access_token.update(active: false, expired_at: Time.current)

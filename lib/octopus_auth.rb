@@ -9,6 +9,7 @@ require "octopus_auth/issue"
 require "octopus_auth/revoke"
 require "octopus_auth/queries"
 
+require "octopus_auth/authenticator"
 
 module OctopusAuth
   class << self
