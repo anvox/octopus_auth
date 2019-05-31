@@ -13,7 +13,9 @@ module OctopusAuth
       return false if access_token.scope.to_sym != @scope
 
       if access_token.expires_at.utc < Time.now.utc
-        access_token.update(active: false, expired_at: Time.now.utc)
+        unless OctopusAuth.configuration.model_readonly
+          access_token.update(active: false, expired_at: Time.now.utc)
+        end
         return false
       end
 

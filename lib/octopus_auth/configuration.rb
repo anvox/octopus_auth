@@ -5,5 +5,6 @@ module OctopusAuth
     attr_accessor :token_life_time
     attr_accessor :token_length
     attr_accessor :model_class
+    attr_accessor :model_readonly
   end
 end

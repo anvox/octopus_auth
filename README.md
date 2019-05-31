@@ -38,6 +38,7 @@ OctopusAuth.configure do |config|
   config.token_life_time  = 2.hours
   config.token_length     = 20
   config.model_class      = AccessToken
+  config.model_readonly   = true
 end
 
 ```
