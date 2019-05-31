@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "octopus_auth"
+require 'pry-byebug'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -10,5 +11,22 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+end
+
+class MockAccessToken
+  attr_accessor :id
+  attr_accessor :token
+  attr_accessor :created_at
+  attr_accessor :issued_at
+  attr_accessor :active
+  attr_accessor :expires_at
+  attr_accessor :scope
+  attr_accessor :owner_id
+  attr_accessor :owner_type
+  attr_accessor :creator_id
+
+  def active?
+    !!active
   end
 end
