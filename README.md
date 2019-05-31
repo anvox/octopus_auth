@@ -51,6 +51,7 @@ Currently, model class `AccessToken` must be an ActiveRecord sub class. with att
 :issued_at,
 :active,
 :expires_at,
+:expired_at,
 :scope,
 :owner_id,
 :owner_type,

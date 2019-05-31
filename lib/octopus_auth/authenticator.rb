@@ -9,8 +9,7 @@ module OctopusAuth
       return false if @token.empty?
 
       access_token = OctopusAuth.configuration.model_class.find_by(token: @token)
-      return false unless access_token && access_token.active?
-      return false if access_token.scope.to_sym != @scope
+      return false unless access_token && valid?(access_token)
 
       if access_token.expires_at.utc < Time.now.utc
         unless OctopusAuth.configuration.model_readonly
@@ -24,6 +23,12 @@ module OctopusAuth
     end
 
     private
+
+    def valid?(access_token)
+      access_token.active? &&
+        !access_token.expired_at &&
+        access_token.scope.to_sym == @scope
+    end
 
     ResultObject = Struct.new(:token, :owner_id, :owner_type, :scope)
     def build_success_result(access_token)

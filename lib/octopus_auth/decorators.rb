@@ -7,6 +7,7 @@ module OctopusAuth
       :issued_at, #        Keep here just for compatible reason, use `issued_at` instead
       :active,
       :expires_at,
+      :expired_at,
       :scope,
       :owner_id,
       :owner_type,

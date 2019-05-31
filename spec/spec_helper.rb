@@ -21,6 +21,7 @@ class MockAccessToken
   attr_accessor :issued_at
   attr_accessor :active
   attr_accessor :expires_at
+  attr_accessor :expired_at
   attr_accessor :scope
   attr_accessor :owner_id
   attr_accessor :owner_type
