@@ -7,8 +7,8 @@ require "octopus_auth/version"
 Gem::Specification.new do |spec|
   spec.name          = "octopus_auth"
   spec.version       = OctopusAuth::VERSION
-  spec.authors       = ["An Vo"]
-  spec.email         = ["thien.an.vo.nguyen@gmail.com"]
+  spec.authors       = ["TINYpulse Devops"]
+  spec.email         = ["devops@tinypulse.com"]
 
   spec.summary       = 'Authentication for TINYoctopus'
   spec.description   = 'Authentication for TINYoctopus, include access_token management'
