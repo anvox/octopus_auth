@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    octopus_auth (0.1.0.rc1)
+    octopus_auth (0.1.0.rc2)
       activerecord (>= 3.0.0)
 
 GEM
