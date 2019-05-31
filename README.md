@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/TINYhr/octopus_auth.svg?branch=master)](https://travis-ci.org/TINYhr/octopus_auth)
 
+[![Gem Version](https://badge.fury.io/rb/octopus_auth.svg)](https://badge.fury.io/rb/octopus_auth)
+
 # OctopusAuth
 
 OctopusAuth provides mechanism to:
