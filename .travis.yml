@@ -1,7 +1,16 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.4.3
+- 2.4.3
 before_install: gem install bundler -v 1.16.0
 script:
-  - bundle exec rspec
+- bundle exec rspec
+deploy:
+  provider: rubygems
+  api_key:
+    secure: NFK+DuUrvFjJFldcCOPNYsmP+CBmkLk/8L/enLA8r6+4qEeVetHySHAV+dWaTGz6FDfZkN0LWQxeJzaQsBXgTKD3Kck14r1hLS7WQwShsjJ+kBNRXEhnlu3lIJxJ8/8AMSezrUwK7dDTD7XDxM/g86IMNpnOPvhmAhuglsKHVHIgGpA8SL+Z3QLEBDMyhYuleskjWXP0DuapXTSHmUWnW5dpkKpDLxI+CoMlHInMImfWoTJDrubDrDNDtxKFP5lXqOGAEuht6OIpteCbXza4bghwHgT5Ao27HpPUqFC9WfpVX1rWA1WAn8gPlGQV/FbO6jdIB94VIODmjOnGCmy9wreQx5mtAZ7HDaXEm2ObYuKp/YSWCSKkgJ2zUamrU8r8b75R8jsqsG38rIuMLOArr93hEMekJZn7TclqRt6R4E4FqFoq1460rWmRk67LFCg5pOouFyLduZNMYS53NhowVL4dxAQ+5RhMK5u07OXmoRYVmqgf+bP2GP82F+8hOfsBOWH24vaOL8yaaqIU3jzJ+1zZga81u+R2lqzUVvEJnDp7NaiPSygj7HPCFhI3RbNLkQd7Rxz3Wq0PeVt/Rt58KpAcCK7+KC+d1qwBKqAFopbPb+UgCcyVNbGcwC1ARA/KRWldnYkjWHfqMzB3VtubBlqdMqGTPaJgK1WLwhAo3Bk=
+  gem: octopus_auth
+  on:
+    tags: true
+    branch: master
+    repo: TINYhr/octopus_auth
