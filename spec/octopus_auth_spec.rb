@@ -3,7 +3,8 @@ RSpec.describe OctopusAuth do
     expect(OctopusAuth::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "has config methods" do
+    expect(OctopusAuth).to respond_to(:configure)
+    expect(OctopusAuth).to respond_to(:reset)
   end
 end
