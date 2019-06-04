@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module OctopusAuth
   class TokenGenerator
     class << self
