@@ -68,7 +68,7 @@ RSpec.describe OctopusAuth::Issue do
     end
 
     it 'expires_at set at next 1 hour' do
-      expect(subject.expires_at).to be_within(1*60*60 + delta / 2).of(Time.now.utc + 1*60*60 - delta / 2)
+      expect(subject.expires_at).to be_within(delta).of(Time.now.utc + 1*60*60 - delta / 2)
     end
   end
 end
