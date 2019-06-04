@@ -13,7 +13,7 @@ module OctopusAuth
       access_token = OctopusAuth.configuration.model_class.new
 
       # Set attributes
-      access_token.issued_at  = Time.current
+      access_token.issued_at  = Time.now.utc
       access_token.expires_at = access_token.issued_at + OctopusAuth.configuration.token_life_time
       access_token.active     = true
 
