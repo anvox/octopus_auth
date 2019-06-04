@@ -9,7 +9,7 @@ module OctopusAuth
     end
 
     def execute
-      @access_token.expired_at = Time.current
+      @access_token.expired_at = Time.now.utc
       @access_token.active = false
 
       @access_token.save!
