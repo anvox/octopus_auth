@@ -2,11 +2,13 @@ require "octopus_auth/token_generator"
 
 module OctopusAuth
   class Issue
-    def initialize(scope, owner_type, owner_id, creator_id)
+    def initialize(scope, owner_type, owner_id, creator_id, expires_at: nil)
       @owner_type   = owner_type
       @owner_id     = owner_id
       @creator_id   = creator_id
       @scope        = scope.to_sym
+
+      @expires_at   = expires_at
     end
 
     def execute
@@ -14,7 +16,11 @@ module OctopusAuth
 
       # Set attributes
       access_token.issued_at  = Time.now.utc
-      access_token.expires_at = access_token.issued_at + OctopusAuth.configuration.token_life_time
+      if @expires_at
+        access_token.expires_at = @expires_at
+      else
+        access_token.expires_at = access_token.issued_at + OctopusAuth.configuration.token_life_time
+      end
       access_token.active     = true
 
       access_token.owner_type = @owner_type
@@ -22,8 +28,8 @@ module OctopusAuth
       access_token.creator_id = @creator_id
 
       access_token.scope      = filtered_scope
-
       access_token.token      = generate_token
+
       access_token.save!
 
       OctopusAuth::Decorators::Default.new(access_token)

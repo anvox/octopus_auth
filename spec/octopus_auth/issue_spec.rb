@@ -71,4 +71,38 @@ RSpec.describe OctopusAuth::Issue do
       expect(subject.expires_at).to be_within(delta).of(Time.now.utc + 1*60*60 - delta / 2)
     end
   end
+
+  context 'custom expiration' do
+    subject do
+      OctopusAuth::Issue.new(:invalid_scope,
+                             'Organization',
+                             1234,
+                             5432,
+                             expires_at: Time.now.utc + 2*24*60*60 # 2 days
+                             ).execute
+    end
+
+    it 'generate token from token generator' do
+      expect(subject.token).to eq('__RANDOM_TOKEN__')
+    end
+
+    it 'has scope data with default scope' do
+      expect(subject.scope).to      eq(:user)
+      expect(subject.owner_type).to eq('Organization')
+      expect(subject.owner_id).to   eq(1234)
+      expect(subject.creator_id).to eq(5432)
+    end
+
+    it 'is active' do
+      expect(subject.active).to eq(true)
+    end
+
+    it 'issued_at tracked at now' do
+      expect(subject.issued_at).to be_within(delta / 2).of(Time.now.utc - delta / 2)
+    end
+
+    it 'expires_at set at next 2 days' do
+      expect(subject.expires_at).to be_within(delta).of(Time.now.utc + 2*24*60*60 - delta / 2)
+    end
+  end
 end
