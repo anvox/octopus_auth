@@ -1,0 +1,66 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AccessScopeValidator	lib/octopus_auth/access_scope_validator.rb	/^  class AccessScopeValidator$/;"	c	class:OctopusAuth
+Authenticator	lib/octopus_auth/authenticator.rb	/^  class Authenticator$/;"	c	class:OctopusAuth
+ByScope	lib/octopus_auth/queries/by_scope.rb	/^    class ByScope$/;"	c	class:OctopusAuth.Queries
+Configuration	lib/octopus_auth/configuration.rb	/^  class Configuration$/;"	c	class:OctopusAuth
+Decorators	lib/octopus_auth/decorators.rb	/^  module Decorators$/;"	m	class:OctopusAuth
+Decorators	lib/octopus_auth/decorators/default.rb	/^  module Decorators$/;"	m	class:OctopusAuth
+Default	lib/octopus_auth/decorators/default.rb	/^    class Default$/;"	c	class:OctopusAuth.Decorators
+Errors	lib/octopus_auth/errors.rb	/^  module Errors$/;"	m	class:OctopusAuth
+Errors	lib/octopus_auth/errors/token_not_found_error.rb	/^  module Errors$/;"	m	class:OctopusAuth
+Get	lib/octopus_auth/queries/get.rb	/^    class Get$/;"	c	class:OctopusAuth.Queries
+Issue	lib/octopus_auth/issue.rb	/^  class Issue$/;"	c	class:OctopusAuth
+MockAccessToken	spec/spec_helper.rb	/^class MockAccessToken$/;"	c
+OctopusAuth	lib/octopus_auth.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/access_scope_validator.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/authenticator.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/configuration.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/decorators.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/decorators/default.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/errors.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/errors/token_not_found_error.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/issue.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/queries.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/queries/by_scope.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/queries/get.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/revoke.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/token_generator.rb	/^module OctopusAuth$/;"	m
+OctopusAuth	lib/octopus_auth/version.rb	/^module OctopusAuth$/;"	m
+Queries	lib/octopus_auth/queries.rb	/^  module Queries$/;"	m	class:OctopusAuth
+Queries	lib/octopus_auth/queries/by_scope.rb	/^  module Queries$/;"	m	class:OctopusAuth
+Queries	lib/octopus_auth/queries/get.rb	/^  module Queries$/;"	m	class:OctopusAuth
+Revoke	lib/octopus_auth/revoke.rb	/^  class Revoke$/;"	c	class:OctopusAuth
+TokenGenerator	lib/octopus_auth/token_generator.rb	/^  class TokenGenerator$/;"	c	class:OctopusAuth
+TokenNotFoundError	lib/octopus_auth/errors/token_not_found_error.rb	/^    class TokenNotFoundError < StandardError$/;"	c	class:OctopusAuth.Errors
+access_all_scopes?	lib/octopus_auth/access_scope_validator.rb	/^    def access_all_scopes?$/;"	f	class:OctopusAuth.AccessScopeValidator
+active?	spec/spec_helper.rb	/^  def active?$/;"	f	class:MockAccessToken
+authenticate	lib/octopus_auth/authenticator.rb	/^    def authenticate$/;"	f	class:OctopusAuth.Authenticator
+build_success_result	lib/octopus_auth/authenticator.rb	/^    def build_success_result(access_token)$/;"	f	class:OctopusAuth.Authenticator
+configure	lib/octopus_auth.rb	/^  def self.configure$/;"	F
+execute	lib/octopus_auth/issue.rb	/^    def execute$/;"	f	class:OctopusAuth.Issue
+execute	lib/octopus_auth/queries/by_scope.rb	/^      def execute$/;"	f	class:OctopusAuth.Queries.ByScope
+execute	lib/octopus_auth/queries/get.rb	/^      def execute$/;"	f	class:OctopusAuth.Queries.Get
+execute	lib/octopus_auth/revoke.rb	/^    def execute$/;"	f	class:OctopusAuth.Revoke
+filtered_scope	lib/octopus_auth/issue.rb	/^    def filtered_scope$/;"	f	class:OctopusAuth.Issue
+filtered_scope	lib/octopus_auth/queries/by_scope.rb	/^      def filtered_scope$/;"	f	class:OctopusAuth.Queries.ByScope
+generate	lib/octopus_auth/token_generator.rb	/^      def generate(length)$/;"	f	class:OctopusAuth.TokenGenerator
+generate_token	lib/octopus_auth/issue.rb	/^    def generate_token$/;"	f	class:OctopusAuth.Issue
+initialize	lib/octopus_auth/access_scope_validator.rb	/^    def initialize(access_token)$/;"	f	class:OctopusAuth.AccessScopeValidator
+initialize	lib/octopus_auth/authenticator.rb	/^    def initialize(token, scope = nil)$/;"	f	class:OctopusAuth.Authenticator
+initialize	lib/octopus_auth/decorators/default.rb	/^      def initialize(token_model)$/;"	f	class:OctopusAuth.Decorators.Default
+initialize	lib/octopus_auth/issue.rb	/^    def initialize(scope, owner_type, owner_id, creator_id, expires_at: nil)$/;"	f	class:OctopusAuth.Issue
+initialize	lib/octopus_auth/queries/by_scope.rb	/^      def initialize(scope, owner_type, owner_id)$/;"	f	class:OctopusAuth.Queries.ByScope
+initialize	lib/octopus_auth/queries/get.rb	/^      def initialize(token)$/;"	f	class:OctopusAuth.Queries.Get
+initialize	lib/octopus_auth/revoke.rb	/^    def initialize(access_token_value)$/;"	f	class:OctopusAuth.Revoke
+relation	lib/octopus_auth/queries/by_scope.rb	/^      def relation$/;"	f	class:OctopusAuth.Queries.ByScope
+reset	lib/octopus_auth.rb	/^  def self.reset$/;"	F
+to_h	lib/octopus_auth/decorators/default.rb	/^      def to_h$/;"	f	class:OctopusAuth.Decorators.Default
+unique_token	lib/octopus_auth/token_generator.rb	/^      def unique_token$/;"	f	class:OctopusAuth.TokenGenerator
+valid	lib/octopus_auth/access_scope_validator.rb	/^    def self.valid?(access_token, *required_scopes)$/;"	F	class:OctopusAuth.AccessScopeValidator
+valid?	lib/octopus_auth/access_scope_validator.rb	/^    def valid?(*required_scopes)$/;"	f	class:OctopusAuth.AccessScopeValidator
+valid?	lib/octopus_auth/authenticator.rb	/^    def valid?(access_token)$/;"	f	class:OctopusAuth.Authenticator
