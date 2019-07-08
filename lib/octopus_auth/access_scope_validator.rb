@@ -18,7 +18,7 @@ module OctopusAuth
     attr_reader :access_token, :access_scopes
 
     def access_all_scopes?
-      access_scopes.any? { |scope| scope.to_s == OctopusAuth.configuration.access_scopes_wildcard.to_s }
+      access_scopes.any? { |scope| scope == OctopusAuth.configuration.access_scopes_wildcard.to_s }
     end
   end
 end
