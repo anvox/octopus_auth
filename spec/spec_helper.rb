@@ -26,6 +26,7 @@ class MockAccessToken
   attr_accessor :owner_id
   attr_accessor :owner_type
   attr_accessor :creator_id
+  attr_accessor :access_scopes
 
   def active?
     !!active

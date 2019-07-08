@@ -2,7 +2,7 @@ module OctopusAuth
   class AccessScopeValidator
     def initialize(access_token)
       @access_token = access_token
-      @access_scopes = (access_token.try(:access_scopes) || '').split(OctopusAuth.configuration.access_scopes_delimiter)
+      @access_scopes = (access_token.access_scopes || '').split(OctopusAuth.configuration.access_scopes_delimiter)
     end
 
     def valid?(*required_scopes)
