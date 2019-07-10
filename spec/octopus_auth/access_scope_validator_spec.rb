@@ -32,8 +32,8 @@ RSpec.describe OctopusAuth::AccessScopeValidator do
       end
     end
 
-    it 'returns false' do
-      expect(subject.valid?(*required_scopes)).to eq false
+    it 'returns true' do
+      expect(subject.valid?(*required_scopes)).to eq true
     end
   end
 
