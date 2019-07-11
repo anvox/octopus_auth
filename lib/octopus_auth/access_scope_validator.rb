@@ -6,7 +6,7 @@ module OctopusAuth
     end
 
     def valid?(*required_scopes)
-      access_all_scopes? || required_scopes.all? { |scope| access_scopes.include?(scope.to_s) }
+      access_all_scopes? || required_scopes.any? { |scope| access_scopes.include?(scope.to_s) }
     end
 
     def self.valid?(access_token, *required_scopes)
