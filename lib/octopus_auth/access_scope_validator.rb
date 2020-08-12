@@ -5,12 +5,12 @@ module OctopusAuth
       @access_scopes = (access_token.access_scopes || '').split(OctopusAuth.configuration.access_scopes_delimiter)
     end
 
-    def valid?(*required_scopes)
-      access_all_scopes? || required_scopes.any? { |scope| access_scopes.include?(scope.to_s) }
+    def valid?(*required_scopes, allow_wildcard: true)
+      (allow_wildcard && access_all_scopes?) || required_scopes.any? { |scope| access_scopes.include?(scope.to_s) }
     end
 
-    def self.valid?(access_token, *required_scopes)
-      self.new(access_token).valid?(*required_scopes)
+    def self.valid?(access_token, *required_scopes, allow_wildcard: true)
+      new(access_token).valid?(*required_scopes, allow_wildcard: allow_wildcard)
     end
 
     private
