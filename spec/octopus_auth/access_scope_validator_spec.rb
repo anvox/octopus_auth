@@ -56,8 +56,16 @@ RSpec.describe OctopusAuth::AccessScopeValidator do
       end
     end
 
-    it 'returns true' do
-      expect(subject.valid?(*required_scopes)).to eq true
+    context 'when wildcard scope is allowing' do
+      it 'returns true' do
+        expect(subject.valid?(*required_scopes)).to eq true
+      end
+    end
+
+    context 'when wildcard scope is not allowing' do
+      it 'returns true' do
+        expect(subject.valid?(*required_scopes, allow_wildcard: false)).to eq false
+      end
     end
   end
 end
